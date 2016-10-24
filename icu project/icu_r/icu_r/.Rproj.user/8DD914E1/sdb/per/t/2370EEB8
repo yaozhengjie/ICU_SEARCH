@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#确定需要使用的内核数量\n#温度\nifelse(zz %in% c(\"676\",\"677\",\"223762\"),ifelse(zz_value>38 && zz_value<36 , setevents(2),NA),NA)\nifelse(zz %in% c(\"3494\",\"211\",\"220045\"),ifelse(zz_value>38 && zz_value<90 , setevents(3),NA),NA)\nifelse(zz %in% c(\"4201\",\"778\",\"3784\",\"\"),ifelse(zz_value>38 && zz_value<36 , setevents(4),NA),NA)\nifelse(zz %in% c(\"676\",\"677\",\"223762\"),ifelse(zz_value>38 && zz_value<36 , setevents(5),NA),NA)\n\n",
+    "created" : 1476151845052.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "4156514191",
+    "id" : "2370EEB8",
+    "lastKnownWriteTime" : 1476153103,
+    "last_content_update" : 1476153103936,
+    "path" : "C:/Users/Administrator/Desktop/icu project/icu_r/icu_r/chatdeal1.R",
+    "project_path" : "chatdeal1.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

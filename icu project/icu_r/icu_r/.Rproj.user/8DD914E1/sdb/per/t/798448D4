@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1476838893648.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "798448D4",
+    "lastKnownWriteTime" : 19140500287258735,
+    "last_content_update" : 1476838893648,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "gglatevudb",
+        "caption" : "d_organ",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=d_organ&cache_key=gglatevudb",
+        "displayedObservations" : 34,
+        "environment" : "",
+        "object" : "d_organ",
+        "totalObservations" : 34,
+        "variables" : 4
+    },
+    "relative_order" : 19,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

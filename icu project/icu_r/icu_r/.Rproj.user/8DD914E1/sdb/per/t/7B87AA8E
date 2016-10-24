@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "venn.plot <- draw.pairwise.venn(100, 70, 30, c(\"First\", \"Second\"))\ngrid.draw(venn.plot)\n\n\nvenn.plot <- draw.pairwise.venn(\n  area1 = 100,\n  area2 = 70,\n  cross.area = 0,\n  category = c(\"First\", \"Second\"),\n  cat.pos = c(0, 180),\n  euler.d = TRUE,\n  sep.dist = 0.03,\n  rotation.degree = 45\n);\n\n\nlibrary(\"multtest\"); library(\"annaffy\"); library(\"hgu95av2.db\");library(\"ALL\");\ndata(ALL, package = \"ALL\")\nALLB <- ALL[,ALL$BT %in% c(\"B1\",\"B2\",\"B3\",\"B4\")]\nf1 <- function(x) (shapiro.test(x)$p.value > 0.05)\nsel1 <- genefilter(exprs(ALL[,ALLB$BT==\"B1\"]), filterfun(f1))\nsel2 <- genefilter(exprs(ALL[,ALLB$BT==\"B2\"]), filterfun(f1))\nsel3 <- genefilter(exprs(ALL[,ALLB$BT==\"B3\"]), filterfun(f1))\nsel4 <- genefilter(exprs(ALL[,ALLB$BT==\"B4\"]), filterfun(f1))\nselected <- sel1 & sel2 & sel3 & sel4\n\nlibrary(limma)\n# Three-set Venn diagram\n  x <- matrix(as.integer(c(sel2,sel3,sel4)),ncol = 3,byrow=FALSE)\ncolnames(x) <- c(\"sel2\",\"sel3\",\"sel4\")\nvc <- vennCounts(x, include=\"both\")\nvennDiagram(vc)\n\n",
+    "created" : 1476178192723.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1895001815",
+    "id" : "7B87AA8E",
+    "lastKnownWriteTime" : 1476321496,
+    "last_content_update" : 1476321496792,
+    "path" : "C:/Users/Administrator/Desktop/icu project/icu_r/icu_r/venn.R",
+    "project_path" : "venn.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 12,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

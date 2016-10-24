@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(RPostgreSQL)\n\nm <- dbDriver(\"PostgreSQL\")\ncon <- dbConnect(m, user=\"postgres\", password=\"\", dbname=\"mimic\")\n\n#获取病人号码,处理病例\npatient_diagnosis   = dbGetQuery(con,\"SELECT * FROM mimiciii.patient_diagnosis\")\npatient_chartevents = dbGetQuery(con,\"SELECT row_id,subject_id,itemid,valuenum FROM mimiciii.patient_chartevents2\")\npatient_labevents   = dbGetQuery(con,\"SELECT row_id,subject_id,itemid,valuenum FROM mimiciii.patient_labevents\")\n\npatients            = dbGetQuery(con,\"SELECT row_id,subject_id,expire_flag FROM mimiciii.patients\")\n#创建表格，四项数据，投篮方式处理\nh = dim(patient_diagnosis)[1]\nl = 4\nevents = data.frame(matrix(rep(0,h*l),nrow = h))\nevents = data.frame(patient_diagnosis[[1]],events)\n#开始投篮处理，在处理中把六项变成四项\n#设计一个函数，放置数据到主表\nsetevents = function(index){\n  events[[index]][location] <<- 1\n}\npatient_chartevents[[3]] = as.character(patient_chartevents[[3]])\n\nsource(\"chartdeal1.R\")\nsource(\"labdeal.R\")\n\n\n\n\n#将数据重新分配，去掉里面的空数据\nhead(events)\n\n\n\n#统计4个指标中是否有超过两项符合,则确定为病人\n##检查一下数据中是否有数据缺失，这个会很头疼\ntemp = data.frame(apply(events[-1],1,sum))\ntemp = ifelse(temp>=2,1,0)\ncombinetable = data.frame(events[[1]],temp)\nrm(rs1, rs2 ,rs)\ngc()\n\n\n#保存为sepsis人数\nsepsistable = subset(combinetable, combinetable[[2]] == 1)\n\n\n#统计死亡率，从patient表中获取,检测出是确证脓毒症中死亡的人数/脓毒症总人数\n#数据的数据\n#sepsis_patient_table = patients[which(patients[[2]] %in% intersect(sepsistable[[1]], patients[[2]])),]\nsepsis_patient_table = patients[which(patients[[2]] %in% sepsistable[[1]]),]\ndeath_sepsis = sum(sepsis_patient_table[[3]])\n\n\ndeath_rate = death_sepsis/dim(sepsis_patient_table)[1]\n\n\n\n\n",
+    "created" : 1474946173860.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3842996668",
+    "id" : "536B8634",
+    "lastKnownWriteTime" : 1476770002,
+    "last_content_update" : 1476770002256,
+    "path" : "C:/Users/Administrator/Desktop/icu project/icu_r/icu_r/mimicsql.R",
+    "project_path" : "mimicsql.R",
+    "properties" : {
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

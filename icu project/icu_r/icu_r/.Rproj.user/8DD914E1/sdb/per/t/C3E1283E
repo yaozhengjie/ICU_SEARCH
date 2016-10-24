@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1476777445987.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "C3E1283E",
+    "lastKnownWriteTime" : 19140500287258735,
+    "last_content_update" : 1476777445987,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "y85dsnlm81",
+        "caption" : "d_angus",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=d_angus&cache_key=y85dsnlm81",
+        "displayedObservations" : "1135",
+        "environment" : "",
+        "object" : "d_angus",
+        "totalObservations" : "1135",
+        "variables" : "4"
+    },
+    "relative_order" : 17,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

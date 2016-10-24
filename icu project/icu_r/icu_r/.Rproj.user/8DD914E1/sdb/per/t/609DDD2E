@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1476770736877.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "609DDD2E",
+    "lastKnownWriteTime" : 7232627544076940385,
+    "last_content_update" : 1476770736877,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "ojn6r5cfnf",
+        "caption" : "patient_diagnosis",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=patient_diagnosis&cache_key=ojn6r5cfnf",
+        "displayedObservations" : 20759,
+        "environment" : "",
+        "object" : "patient_diagnosis",
+        "totalObservations" : 20759,
+        "variables" : 1
+    },
+    "relative_order" : 15,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "src = ' Rcpp::IntegerVector epn(4);\nepn[0] = 6;\nepn[1] = 14;\nepn[2] = 496;\nepn[3] = 8182;\nreturn epn;'\n\nfun <- cxxfunction(signature(), src, plugin=\"Rcpp\")\nfun()\n\nsrc <- 'Rcpp::IntegerVector vec(vx);\n int prod = 1;\n for (int i=0; i<vec.size(); i++) {\n   prod *= vec[i];\n  }\n return Rcpp::wrap(prod);'\n\n fun <- cxxfunction(signature(vx=\"integer\"), src, plugin=\"Rcpp\")\n fun(1:10) # creates integer vector",
+    "created" : 1474979309801.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3163640374",
+    "id" : "AA8C0369",
+    "lastKnownWriteTime" : 1475039296,
+    "last_content_update" : 1475039296490,
+    "path" : "C:/Users/Administrator/Desktop/icu project/icu_r/icu_r/learn_rcpp.R",
+    "project_path" : "learn_rcpp.R",
+    "properties" : {
+        "tempName" : "Untitled3"
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

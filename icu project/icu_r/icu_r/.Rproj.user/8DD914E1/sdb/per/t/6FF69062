@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "library(Rcpp)\nlibrary(compiler)\ncppFunction(\n  'int fib_cpp_0(int n){\n  if(n==1||n==2) return 1;\n  return(fib_cpp_0(n-1)+fib_cpp_0(n-2));\n  }'\n)\npatient.data = read.table(\"F:\\\\Downloads\\\\PATIENTS_DATA_TABLE.csv\", header = TRUE ,sep = \",\")\nicustay.data = read.table(\"F:\\\\Downloads\\\\ICUSTAYS.csv\", header = TRUE ,sep = \",\", nrows = 10)\nadmissions.data = read.table(\"F:\\\\Downloads\\\\ADMISSIONS.csv\", header = TRUE ,sep = \",\", nrows = 100)\nchartevents.data = read.table(\"F:\\\\Downloads\\\\CHARTEVENTS_DATA_TABLE.csv\", header = TRUE ,sep = \",\", nrows = 100000)\nlabevents.data = read.table(\"F:\\\\Downloads\\\\LABEVENTS.csv\", header = TRUE ,sep = \",\", nrows = 1000000)\n\nsepsis.data = read.table(\"F:\\\\Downloads\\\\sepsis_icu.csv\", header = TRUE ,sep = \",\")\n\nx= c(1,2,3)\ncentre =function(type) {\n  switch(type,\n          \"2\"=,\"3\" = 4,\n          \"5\" = 5)\n}\nx <- iris[which(iris[,5] != \"setosa\"), c(1,5)]\ntrials <- 10000\nsystem.time( r <- foreach(icount(trials), .combine=cbind) %dopar% {\n  ind <- sample(100, 100, replace=TRUE)\n  result1 <- glm(x[ind,2]~x[ind,1], family=binomial(logit))\n  coefficients(result1)\n})\n\n\nsystem.time( r <- foreach(i = 1:trials) %dopar% {\n  ind <- sample(100, 100, replace=TRUE)\n  result1 <- glm(x[ind,2]~x[ind,1], family=binomial(logit))\n  coefficients(result1)\n})\n\n\nsystem.time( r <- for(i in 1:trials){\n  ind <- sample(100, 100, replace=TRUE)\n  result1 <- glm(x[ind,2]~x[ind,1], family=binomial(logit))\n  coefficients(result1)\n})\n\n\n\n\n\n",
+    "created" : 1474946166955.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3961852473",
+    "id" : "6FF69062",
+    "lastKnownWriteTime" : 1474979327,
+    "last_content_update" : 1474979327516,
+    "path" : "C:/Users/Administrator/Desktop/icu project/icu_r/icu_r/main.R",
+    "project_path" : "main.R",
+    "properties" : {
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

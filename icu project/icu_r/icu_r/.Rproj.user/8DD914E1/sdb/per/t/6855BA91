@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1475113868357.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "6855BA91",
+    "lastKnownWriteTime" : 0,
+    "last_content_update" : 1475113868357,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "9hvcf18vqm",
+        "caption" : "baseball",
+        "contentUrl" : "grid_resource/gridviewer.html?env=package%3Aplyr&obj=baseball&cache_key=9hvcf18vqm",
+        "displayedObservations" : 21699,
+        "environment" : "package:plyr",
+        "object" : "baseball",
+        "totalObservations" : 21699,
+        "variables" : 22
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

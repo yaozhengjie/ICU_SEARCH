@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1476773219942.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "320D3C53",
+    "lastKnownWriteTime" : 2314977105213941107,
+    "last_content_update" : 1476773219942,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "sqg64cds56",
+        "caption" : "d_sepsis",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=d_sepsis&cache_key=sqg64cds56",
+        "displayedObservations" : 832,
+        "environment" : "",
+        "object" : "d_sepsis",
+        "totalObservations" : 832,
+        "variables" : 2
+    },
+    "relative_order" : 16,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

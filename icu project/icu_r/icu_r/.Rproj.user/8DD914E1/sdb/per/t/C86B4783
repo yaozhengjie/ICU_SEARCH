@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#确定需要使用的内核数量\nlibrary(doParallel)\ncl <- makeCluster(4)\nregisterDoParallel(cl)\ntrials = dim(patient_chartevents)[1]\nsystem.time(for(i in 1:trials){\n    #病人编号,subject\n    tt = patient_chartevents[[2]][i]\n    #找到event中的位置\n    location = which(events[[1]] == tt)[1]\n    #itemid编号,和value的数值\n    zz = patient_chartevents[[3]][i]\n    zz_value = patient_chartevents[[4]][i]\n    #赋值给最终的表\n    switch(\n      zz,\n      #温度\n      \"676\"=,\"677\"=,\n      \"223762\" = ifelse(zz_value>38 && zz_value<36 , setevents(2),NA),\n      \n      #心率\n      \"3494\"=,\n      \"211\"=,\n      \"220045\"= ifelse(zz_value>90 ,setevents(3),NA),\n      \n      #呼吸频率\n      \"220210\" =,\n      \"6749\" =,\n      \"618\" =,\n      \"7884\"= ifelse(zz_value>20 ,setevents(4),NA),\n      #二氧化碳分压,毫米汞柱\n      \"4201\" =,\n      \"778\" =,\n      \"3784\" =,\"3835\"=,\"3836\"=,\n      \"227036\"=,\"220235\" = ifelse(zz_value<32,setevents(4),NA),\n      \n      #白细胞数目\n      \"227063\"=,\"227062\"=,\"220546\"=,\"226780\"=,\n      \"4200\"=, \"1542\"=, \"861\"=, \"1127\" = ifelse(zz_value>14 && zz_value<4,setevents(5),NA)\n    )\n  })",
+    "created" : 1474962196871.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3766951",
+    "id" : "C86B4783",
+    "lastKnownWriteTime" : 1475037359,
+    "last_content_update" : 1475037359761,
+    "path" : "C:/Users/Administrator/Desktop/icu project/icu_r/icu_r/chartdeal.R",
+    "project_path" : "chartdeal.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#include <Rcpp.h>\nusing namespace Rcpp;\n\n//[[Rcpp::export]]\nint fib_cpp_1(int n)\n{\n  if(n==1||n==2) return 1;\n  return fib_cpp_1(n-1)+fib_cpp_1(n-2);\n}\n\n \n",
+    "created" : 1474953320365.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1280701737",
+    "id" : "2F2A953",
+    "lastKnownWriteTime" : 1474979427,
+    "last_content_update" : 1474979427666,
+    "path" : "C:/Users/Administrator/Desktop/icu project/icu_r/icu_r/rr.cpp",
+    "project_path" : "rr.cpp",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "cpp"
+}

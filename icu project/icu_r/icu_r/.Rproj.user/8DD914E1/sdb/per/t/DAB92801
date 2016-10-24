@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1477029947647.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "DAB92801",
+    "lastKnownWriteTime" : 8243118359174982957,
+    "last_content_update" : 1477029947647,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "3ej0w22i10",
+        "caption" : "notetext_freq",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=notetext_freq&cache_key=3ej0w22i10",
+        "displayedObservations" : "1899",
+        "environment" : "",
+        "object" : "notetext_freq",
+        "totalObservations" : "1899",
+        "variables" : "2"
+    },
+    "relative_order" : 30,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

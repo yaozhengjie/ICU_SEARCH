@@ -1,0 +1,28 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1476945257384.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "1AA40208",
+    "lastKnownWriteTime" : 7308604914264011873,
+    "last_content_update" : 1476945257384,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "fesn0u4ckl",
+        "caption" : "oii",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=oii&cache_key=fesn0u4ckl",
+        "displayedObservations" : "106",
+        "environment" : "",
+        "object" : "oii",
+        "totalObservations" : "106",
+        "variables" : "15"
+    },
+    "relative_order" : 24,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

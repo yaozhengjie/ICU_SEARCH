@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "/*\n从被感染人群中，提取出符合脓毒症感染数据表中的感染者的编号\n*/\n\nselect distinct(subject_id) from diagnoses_icd order by subject_id as sepsis_id;\n\n\nDROP TABLE IF EXISTS SEPSIS_ICD CASCADE;\nCREATE TABLE D_SEPSIS\n   (\n    ROW_ID INT NOT NULL,\n\tICD9_CODE VARCHAR(10) NOT NULL,\n\tCONSTRAINT d_icd_diag_code_unique UNIQUE (ICD9_CODE),\n   ) ;\n/*\n复制数据\n*/\n\\copy D_SEPSIS from 'D_SEPSIS.csv' delimiter ',' csv header NULL ''\n\nselect row_id,icd9_code from diagnoses_icd \nintersect \nselect row_id,icd9_code from d_sepsis where icd9_code>'200';\n\nSELECT * FROM d_sepsis\nINNER JOIN diagnoses_icd\nON  d_sepsis.icd9_code=diagnoses_icd.icd9_code; \n/*\n创建保存感染人群的数据库\n*/\ncreate table patient_diagnosis(\nsubject_id int not null,\nconstraint patient_diagnosis_pk primary key (subject_id)\n);\n\n/*\n取交集数据，受感染的病人，并保存到感染人群数据表中\n*/\n\n\n/*\nSELECT distinct(subject_id) FROM d_sepsis\nINNER JOIN diagnoses_icd\nON d_sepsis.icd9_code=diagnoses_icd.icd9_code; \n*/\nSELECT distinct(subject_id) into patient_diagnosis \nFROM d_sepsis INNER JOIN diagnoses_icd\nON d_sepsis.icd9_code=diagnoses_icd.icd9_code; \n\n\n\n\n\nselect subject_id \nfrom d_sepsis INNER JOIN diagnoses_icd\nON d_sepsis.icd9_code=diagnoses_icd.icd9_code\ngroup by subject_id;\n\n/*\n从chartevents中获取交集数据，处理文件\n*/\nalter table patient_diagnosis2 ALTER COLUMN subject_id type int;\nalter table patient_diagnosis2 alter column subject_id set  not null;\n\nSELECT s.row_id, s.subject_id, s.hadm_id, s.icustay_id, s.itemid, s.charttime, s.storetime, s.value, s.valuenum  into patient_chartevents2 \nFROM chartevents as s\nwhere chartevents.subject_id = any (SELECT subject_id from patient_sepsis);\n\n/*\n删选出将数据中label字段中，为 ，并返回item\n*/\n\nselect * from d_items where label like '%CO2%';\n\n/*\n比较多个标准的不同数值\n*/\nselect itemid ,count(*) from chartevents where (itemid=676 or itemid=677) and valuenum<36 group by itemid;\n\n\n/*\n筛选温度异常的病人数据\n*/\nselect * from chartevent where item_id=223762 and valuenum>38 or valuenum<36 ;\n\nselect * from chartevent where item_id=223762 and valuenum>38 or valuenum<36 ;\n\n/*\n筛选幼稚细胞（BLASTS）数据，有\n51346,由于所占比例90%以上，单取该数据便可\n51443\n51113\n51148\n列出的数据\n*/\nselect itemid ,count(*) from labevents \nwhere (itemid in (51346,51443,51113,51148)) and valuenum<36 group by itemid;\n/*\n筛选白细胞（wbc）数据，有labevents 和 chartevents的区别需要比较\n*/\n\n\n\nselect itemid, count(*) from labevents as lab\nwhere lab.itemid = ANY (select itemid from d_labitems where label like '%WBC%') group by itemid;\n\n\nSELECT itemid  FROM \nchartevent INNER JOIN (select itemid from d_labitems where  label like '%WBC%' as s)\nON chartevent.itemid = s.itemid;\n\n/*\n筛选sofa评分表\n*/\n\n\n/*\n将各个数据都记录下来，最后通过\n\n*/\n\n\n/*\n在多个表中寻找，符合两个条件及以上的数据\n*/\n\n\n\n/*\n检查数据中的数据，lab和chart中是否有重复的病人\n*/\nselect subject_id from \nchartevents inner join labevents\non chartevents.subject_id=labevents.subject_id;\n\n\n\n\n   \n   \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n",
+    "created" : 1476321460991.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3759052179",
+    "id" : "5321EE65",
+    "lastKnownWriteTime" : 1476321669,
+    "last_content_update" : 1476321669201,
+    "path" : "C:/Users/Administrator/Desktop/icu project/sepisdatamine.sql",
+    "project_path" : null,
+    "properties" : {
+    },
+    "relative_order" : 13,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "sql"
+}

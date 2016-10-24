@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "#处理lab数据\ntrials = dim(patient_labevents)[1]\nfor(i in 1:trials){\n  #病人编号,subject\n  tt = patient_labevents[[2]][i]\n  #找到event中的位置\n  location = which(events[[1]] == tt)\n  #itemid编号,和value的数值\n  zz = patient_labevents[[3]][i]\n  zz_value = patient_labevents[[4]][i]\n  #赋值给最终的表\n  switch(\n    zz,\n    #二氧化碳分压,毫米汞柱\n    \"50818\"=,\"50830\" = ifelse(zz_value<32,setevents(4),NA),\n    \n    #白细胞数目\n    \"51300\"=,\"51516\"=,\n    #幼稚细胞数    \n    \"51148\"= ifelse(zz_value>14 && zz_value<4,setevents(5),NA)\n  )\n}",
+    "created" : 1474962243330.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2627470715",
+    "id" : "1C5726C4",
+    "lastKnownWriteTime" : 1475039287,
+    "last_content_update" : 1475039287680,
+    "path" : "C:/Users/Administrator/Desktop/icu project/icu_r/icu_r/labdeal.R",
+    "project_path" : "labdeal.R",
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
